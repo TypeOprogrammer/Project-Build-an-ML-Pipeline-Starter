@@ -1,0 +1,15 @@
+artifact_uri: file:///home/typeoprogrammer/Project-Build-an-ML-Pipeline-Starter/mlruns/0/19dfed96b4214e08bfb5b4a63b99bc74/artifacts
+end_time: 1732634230951
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19dfed96b4214e08bfb5b4a63b99bc74
+run_name: crawling-duck-888
+run_uuid: 19dfed96b4214e08bfb5b4a63b99bc74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732634080691
+status: 3
+tags: []
+user_id: typeoprogrammer
