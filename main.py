@@ -66,7 +66,7 @@ def go(config: DictConfig):
             ##################
             # Implement here #
             ##################
-            pass
+            
 
         if "data_check" in active_steps:
             ##################
@@ -107,4 +107,5 @@ def go(config: DictConfig):
 
 if __name__ == "__main__":
     go()
-  #### save me
+  #### save memlflow run . -P steps=basic_cleaning
+
