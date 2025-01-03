@@ -28,7 +28,7 @@ def go(config: DictConfig):
     os.environ["WANDB_PROJECT"] = config["main"]["project_name"]
     os.environ["WANDB_RUN_GROUP"] = config["main"]["experiment_name"]
 
-    # Steps to execute
+    # Steps to execute> mlflow run . -P steps=download,basic_cleaning
     steps_par = config['main']['steps']
     active_steps = steps_par.split(",") if steps_par != "all" else _steps
 
@@ -51,6 +51,18 @@ def go(config: DictConfig):
             )
 
         if "basic_cleaning" in active_steps:
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),  # Path to the basic_cleaning folder
+                "main",  
+                parameters={
+            "input_artifact": "sample.csv:latest",  # Input artifact to clean
+            "output_artifact": "clean_sample.csv",  # Output cleaned artifact
+            "output_type": "clean_sample",  # Type of output artifact
+            "output_description": "Data with outliers and null values removed",  # Description of output data
+            "min_price": config['etl']['min_price'],  # Minimum price filter
+            "max_price": config['etl']['max_price'],  # Maximum price filter
+        },
+    )
             ##################
             # Implement here #
             ##################
@@ -95,3 +107,4 @@ def go(config: DictConfig):
 
 if __name__ == "__main__":
     go()
+  #### save me
